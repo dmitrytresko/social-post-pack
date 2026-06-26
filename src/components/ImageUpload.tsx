@@ -6,13 +6,15 @@ interface ImageUploadProps {
   file: File | null;
   onSelect: (file: File | null) => void;
   optional?: boolean;
+  disabled?: boolean;
 }
 
 export function ImageUpload({
   label,
   file,
   onSelect,
-  optional = false,
+  optional,
+  disabled,
 }: ImageUploadProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -45,20 +47,22 @@ export function ImageUpload({
       </span>
 
       <div
-        onClick={() => inputRef.current?.click()}
+        onClick={() => !disabled && inputRef.current?.click()}
         onDragOver={(e) => {
           e.preventDefault();
-          setDragActive(true);
+          if (!disabled) setDragActive(true);
         }}
         onDragLeave={() => setDragActive(false)}
         onDrop={(e) => {
           e.preventDefault();
           setDragActive(false);
-          onSelectFiles(e.dataTransfer.files);
+          if (!disabled) onSelectFiles(e.dataTransfer.files);
         }}
-        className={`flex aspect-square cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-dashed bg-surface text-center ${
-          dragActive ? 'border-accent' : 'border-border'
-        }`}
+        className={`flex aspect-square items-center justify-center overflow-hidden rounded-lg border border-dashed bg-surface text-center transition-colors ${
+          disabled
+            ? 'pointer-events-none border-border opacity-50'
+            : 'cursor-pointer hover:border-accent'
+        } ${dragActive ? 'border-accent' : 'border-accent/40'}`}
       >
         {preview ? (
           <img
@@ -87,6 +91,7 @@ export function ImageUpload({
         <Button
           type="button"
           className="self-start text-xs"
+          disabled={disabled}
           onClick={() => onSelect(null)}
         >
           Remove

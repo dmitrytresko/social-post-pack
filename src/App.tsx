@@ -1,4 +1,4 @@
-import { GeneratorSection } from './sections/GeneratorSection';
+import { PostGenerator } from './features/PostGenerator';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         creatives. Upload a product and one or two reference scenes to start.
       </p>
 
-      <GeneratorSection />
+      <PostGenerator />
     </main>
   );
 }

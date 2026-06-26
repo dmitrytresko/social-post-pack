@@ -13,12 +13,13 @@ A tool that turns one product image and a reference scene into three ready-to-po
 ## Architecture
 
 - `src/components/` — reusable, presentational components
-- `src/sections/` — section-specific components, hooks, and logic, grouped by feature
-- `src/hooks/` — shared custom hooks
+- `src/features/` — feature-specific components and logic, grouped in a folder per feature
+- `src/hooks/` — custom hooks (including feature-specific ones)
+- `src/constants/` — shared constants
 - `src/types/` — shared TypeScript types/interfaces
 - `src/utils/` — pure utility functions, API clients
 
-Keep feature-specific code inside its feature folder. Only promote something to `components/`, `hooks/`, or `utils/` once a second feature actually needs it — don't pre-abstract for a one-off.
+Keep feature-specific UI inside its feature folder. Only promote something to `components/`, `constants/`, or `utils/` once a second feature actually needs it — don't pre-abstract for a one-off. A non-trivial component or hook gets its own folder with `index`, plus separate `types.ts`/`constants.ts` when it has them.
 
 ## Conventions
 

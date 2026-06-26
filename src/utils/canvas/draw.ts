@@ -1,27 +1,19 @@
-import type { Composition } from '../../types/analysis';
-import type { TextRegion } from '../../types/canvas';
+import type { TextColor } from '../../types/posts';
 import { FONT } from '../../constants/canvas';
 
 export function drawScrim(
   ctx: CanvasRenderingContext2D,
-  region: TextRegion,
-  textColor: Composition['textColor'],
+  textColor: TextColor,
+  w: number,
+  h: number,
 ) {
   const rgb = textColor === 'light' ? '0, 0, 0' : '255, 255, 255';
-  const strong = `rgba(${rgb}, 0.78)`;
-  const clear = `rgba(${rgb}, 0)`;
-
-  const horizontal = region.scrim === 'left' || region.scrim === 'right';
-  const gradient = horizontal
-    ? ctx.createLinearGradient(region.x, 0, region.x + region.w, 0)
-    : ctx.createLinearGradient(0, region.y, 0, region.y + region.h);
-
-  const darkFirst = region.scrim === 'top' || region.scrim === 'right';
-  gradient.addColorStop(0, darkFirst ? strong : clear);
-  gradient.addColorStop(1, darkFirst ? clear : strong);
-
+  const start = h * 0.5;
+  const gradient = ctx.createLinearGradient(0, start, 0, h);
+  gradient.addColorStop(0, `rgba(${rgb}, 0)`);
+  gradient.addColorStop(1, `rgba(${rgb}, 0.78)`);
   ctx.fillStyle = gradient;
-  ctx.fillRect(region.x, region.y, region.w, region.h);
+  ctx.fillRect(0, start, w, h - start);
 }
 
 export function drawCta(

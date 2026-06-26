@@ -1,9 +1,6 @@
-export type MediaType = 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
+import type { MediaType, ParsedImage } from './types.ts';
 
-export function parseDataUrl(dataUrl: string): {
-  media_type: MediaType;
-  data: string;
-} {
+export function parseDataUrl(dataUrl: string): ParsedImage {
   const match = dataUrl.match(
     /^data:(image\/(?:jpeg|png|gif|webp));base64,(.*)$/,
   );

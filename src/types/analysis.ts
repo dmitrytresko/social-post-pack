@@ -1,19 +1,10 @@
-import type { PostCopy, PostFormat } from './posts';
-
-export interface Composition {
-  productScale: number;
-  productPosition: 'center' | 'bottom-center' | 'left' | 'right';
-  overlayOpacity: number;
-  textColor: 'light' | 'dark';
-}
+import type { PostCopy, PostFormat, TextColor } from './posts';
 
 export interface AnalysisResult {
-  productName: string;
-  referenceTheme: string;
+  imagePrompt: string;
   accent: string;
-  overlayColor: string;
+  textColor: TextColor;
   copies: Record<PostFormat, PostCopy>;
-  composition: Composition;
 }
 
 export interface AnalyzeRequest {

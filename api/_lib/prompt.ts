@@ -1,14 +1,7 @@
-export const ANALYSIS_PROMPT = `You are a social media creative director. You are given one product image and one or two reference scene images. Plan three social ad creatives that place the product into the reference scene's mood.
+export const ANALYSIS_PROMPT = `You are a creative director. You are given one product image and one or two reference scene images. Plan how to place the product into the reference scene's setting and mood.
 
 Return:
-- productName: a short name for the product
-- referenceTheme: a few words describing the reference scene's mood/setting
-- accent: a hex color (from the reference palette) for the call-to-action pill
-- overlayColor: a hex color to wash over the reference background for text legibility
-- copies: distinct copy per format. headline is punchy; banner headline is the shortest, story has the most room. tagline is one supporting line; cta is 1-3 words.
-- composition.productScale: 0.3-0.8 (product width relative to canvas)
-- composition.productPosition: where the product sits
-- composition.overlayOpacity: 0-0.5
-- composition.textColor: 'light' or 'dark', whichever stays legible over the reference
-
-Keep copy concise and free of hashtags and emoji.`;
+- imagePrompt: a vivid instruction for an image model to place the product naturally into the reference scene — photorealistic, with matched lighting, shadows, and perspective so the product genuinely belongs there. Describe the product and the setting concretely. Keep the product's true shape and label intact. Do not mention any text, captions, or copy.
+- accent: a hex color drawn from the scene, for a small call-to-action pill
+- textColor: 'light' or 'dark' — whichever keeps a short headline legible over the lower part of the scene
+- copies: minimal copy per format. headline is a single short punchy line (the banner's is shortest, the story's can be slightly longer); cta is 1-2 words. No hashtags or emoji.`;
