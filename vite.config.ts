@@ -57,9 +57,14 @@ function devApi(): Plugin {
       server.middlewares.use(
         '/api/generate',
         jsonRoute((body) => {
-          const { productImage, referenceImages, imagePrompt } =
+          const { productImage, referenceImages, imagePrompt, layouts } =
             body as GenerateBody;
-          return generateScenes(productImage, referenceImages, imagePrompt);
+          return generateScenes(
+            productImage,
+            referenceImages,
+            imagePrompt,
+            layouts,
+          );
         }),
       );
     },

@@ -18,6 +18,8 @@ A tool that turns one product image and a reference scene into three ready-to-po
 - `src/constants/` — shared constants
 - `src/types/` — shared TypeScript types/interfaces
 - `src/utils/` — pure utility functions, API clients
+- `api/` — Vercel serverless functions
+- `api/_lib/` - shared function helpers, kept self-contained from `src/`
 
 Keep feature-specific UI inside its feature folder. Only promote something to `components/`, `constants/`, or `utils/` once a second feature actually needs it — don't pre-abstract for a one-off. A non-trivial component or hook gets its own folder with `index`, plus separate `types.ts`/`constants.ts` when it has them.
 
@@ -48,7 +50,7 @@ export function Card({ title, onSelect }: CardProps) {
 
 - Local UI state: `useState` / `useReducer`
 - No global state library unless a specific need comes up — don't introduce Redux/Zustand preemptively
-- If server/API data shows up later, flag the fetching approach before defaulting to raw `useEffect` calls
+- Server/API data uses TanStack Query (`useMutation`), not raw `useEffect`
 
 ## Coding Practices
 
@@ -72,6 +74,6 @@ export function Card({ title, onSelect }: CardProps) {
 
 ## Do Not
 
-- Don't add new dependencies (UI libraries, state managers, routers, etc.) without flagging it first
+- Don't add new dependencies (UI libraries, state managers, routers, etc.) without flagging it first — already in use: `@anthropic-ai/sdk`, `@google/genai`, `@tanstack/react-query`
 - Don't create abstractions "for the future" — build for what the current plan needs
 - Don't silently deviate from the dev plan — surface it first if something doesn't fit
