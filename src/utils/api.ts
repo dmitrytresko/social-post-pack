@@ -21,6 +21,7 @@ export interface GenerateRequest {
   productImage: string;
   referenceImages: string[];
   imagePrompt: string;
+  layouts: AnalysisResult['layouts'];
 }
 
 export async function generateScenes(

@@ -10,12 +10,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const { productImage, referenceImages, imagePrompt } =
+  const { productImage, referenceImages, imagePrompt, layouts } =
     req.body as Partial<GenerateBody>;
 
-  if (!productImage || !referenceImages?.length || !imagePrompt) {
+  if (!productImage || !referenceImages?.length || !imagePrompt || !layouts) {
     res.status(400).json({
-      error: 'productImage, referenceImages and imagePrompt are required',
+      error: 'productImage, referenceImages, imagePrompt and layouts are required',
     });
     return;
   }
@@ -23,7 +23,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     res
       .status(200)
-      .json(await generateScenes(productImage, referenceImages, imagePrompt));
+      .json(
+        await generateScenes(
+          productImage,
+          referenceImages,
+          imagePrompt,
+          layouts,
+        ),
+      );
   } catch (error) {
     console.error('Generate failed:', error);
     res.status(500).json({ error: 'Generation failed' });

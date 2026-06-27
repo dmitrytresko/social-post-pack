@@ -14,10 +14,12 @@ async function generatePosts({
   const referenceImages = await Promise.all(referenceFiles.map(fileToDataUrl));
 
   const analysis = await analyzeImages({ productImage, referenceImages });
+
   const scenes = await generateScenes({
     productImage,
     referenceImages,
     imagePrompt: analysis.imagePrompt,
+    layouts: analysis.layouts,
   });
 
   await Promise.all([
@@ -28,9 +30,7 @@ async function generatePosts({
   return Promise.all(
     POST_FORMAT_LIST.map(async (format) => {
       const scene = await loadImage(scenes[format]);
-      const dataUrl = renderPost(format, scene, analysis).toDataURL(
-        'image/png',
-      );
+      const dataUrl = renderPost(format, scene, analysis).toDataURL('image/png');
       return { format, dataUrl };
     }),
   );
