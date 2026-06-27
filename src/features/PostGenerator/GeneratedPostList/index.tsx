@@ -1,4 +1,5 @@
 import { PostPreview } from '../../../components/PostPreview';
+import { SectionHeading } from '../../../components/SectionHeading';
 import type { GeneratedPostListProps } from './types';
 
 export function GeneratedPostList({ ref, posts }: GeneratedPostListProps) {
@@ -8,10 +9,9 @@ export function GeneratedPostList({ ref, posts }: GeneratedPostListProps) {
 
   return (
     <div ref={ref} className="mt-14 scroll-mt-4 border-t border-border pt-10">
-      <p className="text-accent">$ output</p>
-      <h2 className="mt-2 mb-8 text-xl font-bold">Your post pack</h2>
+      <SectionHeading label="output" title="Your post pack" />
 
-      <div className="flex flex-col gap-8">
+      <div className="mt-8 flex flex-col gap-8">
         {banner && <PostPreview post={banner} />}
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
