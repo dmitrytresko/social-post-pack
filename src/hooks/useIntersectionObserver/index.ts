@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
-import type { RefObject } from 'react';
+import type { UseIntersectionObserverInput } from './types';
 
-export function useIntersectionObserver(
-  ref: RefObject<Element | null>,
-  onIntersect: (entry: IntersectionObserverEntry) => void,
-  threshold: number | number[] = 0,
-) {
+export function useIntersectionObserver({
+  ref,
+  onIntersect,
+  threshold = 0,
+}: UseIntersectionObserverInput) {
   const onIntersectRef = useRef(onIntersect);
   onIntersectRef.current = onIntersect;
 

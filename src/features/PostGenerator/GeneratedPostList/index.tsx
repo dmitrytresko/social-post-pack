@@ -1,11 +1,5 @@
-import type { Ref } from 'react';
-import type { GeneratedPost } from '../../types/posts';
-import { PostPreview } from '../../components/PostPreview';
-
-interface GeneratedPostListProps {
-  ref: Ref<HTMLDivElement>;
-  posts: GeneratedPost[];
-}
+import { PostPreview } from '../../../components/PostPreview';
+import type { GeneratedPostListProps } from './types';
 
 export function GeneratedPostList({ ref, posts }: GeneratedPostListProps) {
   const banner = posts.find((post) => post.format === 'banner');

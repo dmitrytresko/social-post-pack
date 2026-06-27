@@ -1,9 +1,5 @@
-import type { GeneratedPost } from '../types/posts';
-import { POST_FORMATS } from '../constants/posts';
-
-interface PostPreviewProps {
-  post: GeneratedPost;
-}
+import { POST_FORMATS } from '../../constants/posts';
+import type { PostPreviewProps } from './types';
 
 export function PostPreview({ post }: PostPreviewProps) {
   const { label } = POST_FORMATS[post.format];

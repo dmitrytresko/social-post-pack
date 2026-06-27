@@ -1,15 +1,7 @@
 import { useState } from 'react';
-import { ImageUpload } from '../../components/ImageUpload';
-import { Button } from '../../components/Button';
-
-interface ImageUploaderSectionProps {
-  onGenerate: (
-    productFile: File,
-    referenceFiles: File[],
-  ) => void | Promise<void>;
-  isGenerating: boolean;
-  isError: boolean;
-}
+import { ImageUpload } from '../../../components/ImageUpload';
+import { Button } from '../../../components/Button';
+import type { ImageUploaderSectionProps } from './types';
 
 export function ImageUploaderSection({
   onGenerate,

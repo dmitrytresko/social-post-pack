@@ -1,13 +1,12 @@
 import { useCallback, useEffect, useRef } from 'react';
-import type { RefObject } from 'react';
 import { useIntersectionObserver } from '../useIntersectionObserver';
+import { SCROLL_THRESHOLDS } from './constants';
+import type { UseScrollToOutputInput } from './types';
 
-const SCROLL_THRESHOLDS = [0, 0.5, 0.85, 1] as const;
-
-export function useScrollToOutput(
-  outputRef: RefObject<HTMLElement | null>,
-  isReady: boolean,
-) {
+export function useScrollToOutput({
+  outputRef,
+  isReady,
+}: UseScrollToOutputInput) {
   const shouldScrollRef = useRef(false);
 
   useEffect(() => {
@@ -19,14 +18,22 @@ export function useScrollToOutput(
   }, [isReady]);
 
   const onIntersect = useCallback((entry: IntersectionObserverEntry) => {
-    if (!shouldScrollRef.current) return;
+    if (!shouldScrollRef.current) {
+      return;
+    }
+
     if (entry.intersectionRatio >= 0.95) {
       shouldScrollRef.current = false;
       return;
     }
+
     entry.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     shouldScrollRef.current = false;
   }, []);
 
-  useIntersectionObserver(outputRef, onIntersect, [...SCROLL_THRESHOLDS]);
+  useIntersectionObserver({
+    ref: outputRef,
+    onIntersect,
+    threshold: [...SCROLL_THRESHOLDS],
+  });
 }

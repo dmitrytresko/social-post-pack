@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import type { UseRotatingStatusInput } from './types';
 
-export function useRotatingStatus(
-  messages: readonly string[],
+export function useRotatingStatus({
+  messages,
   intervalMs = 15_000,
-) {
+}: UseRotatingStatusInput) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

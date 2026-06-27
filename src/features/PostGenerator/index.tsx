@@ -13,7 +13,7 @@ export function PostGenerator() {
   const hasPosts = Boolean(posts && posts.length > 0);
   const showOutput = hasPosts && !isPending;
 
-  useScrollToOutput(outputRef, showOutput);
+  useScrollToOutput({ outputRef, isReady: showOutput });
 
   const onGenerate = async (productFile: File, referenceFiles: File[]) => {
     if (hasPosts || window.scrollY > 0) {

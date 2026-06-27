@@ -1,17 +1,10 @@
-import { useAnimatedEllipsis } from '../../hooks/useAnimatedEllipsis';
-import { useRotatingStatus } from '../../hooks/useRotatingStatus';
-
-const STATUS_MESSAGES = [
-  'Thinking',
-  'Generating',
-  'Compositing',
-  'Writing copy',
-  'Placing product',
-] as const;
+import { useAnimatedEllipsis } from '../../../hooks/useAnimatedEllipsis';
+import { useRotatingStatus } from '../../../hooks/useRotatingStatus';
+import { STATUS_MESSAGES as messages } from './constants';
 
 export function GenerationOverlay() {
   const ellipsis = useAnimatedEllipsis();
-  const status = useRotatingStatus(STATUS_MESSAGES);
+  const status = useRotatingStatus({ messages });
 
   return (
     <div
@@ -25,7 +18,7 @@ export function GenerationOverlay() {
         aria-label="Generating posts"
       />
       <p className="mt-6 max-w-xs text-center text-sm text-white">
-        Generation may take up to 3 minutes.
+        Generation may take up to a minute.
       </p>
       <p className="mt-2 text-center text-sm text-white/90">
         {status}

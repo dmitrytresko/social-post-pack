@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Button } from './Button';
-
-interface ImageUploadProps {
-  label: string;
-  file: File | null;
-  onSelect: (file: File | null) => void;
-  optional?: boolean;
-  disabled?: boolean;
-}
+import { Button } from '../Button';
+import type { ImageUploadProps } from './types';
 
 export function ImageUpload({
   label,
