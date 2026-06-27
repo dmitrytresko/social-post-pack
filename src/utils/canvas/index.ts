@@ -24,6 +24,8 @@ export function renderPost(
     analysis.textColor,
     width,
     height,
+    format,
+    analysis.layouts[format],
   );
 
   return canvas;
