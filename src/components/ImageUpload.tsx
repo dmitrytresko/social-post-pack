@@ -60,7 +60,7 @@ export function ImageUpload({
         }}
         className={`flex aspect-square items-center justify-center overflow-hidden rounded-lg border border-dashed bg-surface text-center transition-colors ${
           disabled
-            ? 'pointer-events-none border-border opacity-50'
+            ? 'pointer-events-none border-border'
             : 'cursor-pointer hover:border-accent'
         } ${dragActive ? 'border-accent' : 'border-accent/40'}`}
       >

@@ -4,12 +4,12 @@ import { analyzeImages, generateScenes } from '../../utils/api';
 import { fileToDataUrl, loadImage } from '../../utils/image';
 import { renderPost } from '../../utils/canvas';
 import { POST_FORMAT_LIST } from '../../constants/posts';
-import type { GenerateInput } from './types';
+import type { GeneratePostsInput } from './types';
 
 async function generatePosts({
   productFile,
   referenceFiles,
-}: GenerateInput): Promise<GeneratedPost[]> {
+}: GeneratePostsInput): Promise<GeneratedPost[]> {
   const productImage = await fileToDataUrl(productFile);
   const referenceImages = await Promise.all(referenceFiles.map(fileToDataUrl));
 
@@ -30,7 +30,9 @@ async function generatePosts({
   return Promise.all(
     POST_FORMAT_LIST.map(async (format) => {
       const scene = await loadImage(scenes[format]);
-      const dataUrl = renderPost(format, scene, analysis).toDataURL('image/png');
+      const dataUrl = renderPost(format, scene, analysis).toDataURL(
+        'image/png',
+      );
       return { format, dataUrl };
     }),
   );

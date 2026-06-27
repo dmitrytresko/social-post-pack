@@ -3,7 +3,10 @@ import { ImageUpload } from '../../components/ImageUpload';
 import { Button } from '../../components/Button';
 
 interface ImageUploaderSectionProps {
-  onGenerate: (productFile: File, referenceFiles: File[]) => void;
+  onGenerate: (
+    productFile: File,
+    referenceFiles: File[],
+  ) => void | Promise<void>;
   isGenerating: boolean;
   isError: boolean;
 }
@@ -22,9 +25,9 @@ export function ImageUploaderSection({
   );
   const canGenerate = productFile !== null && references.length > 0;
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (productFile && references.length > 0) {
-      onGenerate(productFile, references);
+      await onGenerate(productFile, references);
     }
   };
 
@@ -44,24 +47,25 @@ export function ImageUploaderSection({
           disabled={isGenerating}
         />
         <ImageUpload
+          optional
           label="Reference scene"
           file={reference2}
           onSelect={setReference2}
-          optional
           disabled={isGenerating}
         />
       </div>
 
-      <div className="mt-8 flex items-center gap-4">
+      <div className="relative mt-8 flex flex-col items-center gap-4">
         <Button
           variant="primary"
           disabled={!canGenerate || isGenerating}
           onClick={onSubmit}
         >
-          {isGenerating ? 'Generating…' : 'Generate posts'}
+          Generate posts
         </Button>
+
         {isError && (
-          <span className="text-sm text-red-400">
+          <span className="text-center text-sm text-red-400">
             Could not generate posts. Please try again.
           </span>
         )}
