@@ -2,6 +2,12 @@
 
 Turn one product image and one or two reference scenes into three ready-to-post social creatives — square (1080×1080), story (1080×1920), and wide banner. Claude plans the layout and writes the on-image copy, Gemini 2.5 Flash Image places the product into the scene, and a Canvas pass overlays the copy and exports each creative as a PNG.
 
+**Live:**
+
+```
+https://social-post-pack.vercel.app/
+```
+
 ## How it works
 
 1. **Analyze** (`/api/analyze`) — Claude reads the product and reference images and returns a plan: an image prompt, per-format copy (headline + CTA), an accent color, and where the product and text should sit.
@@ -33,4 +39,4 @@ npm run typecheck  # tsc --noEmit
 
 ## Tech stack
 
-React 19, Vite, TypeScript, Tailwind, and TanStack Query on the front end; `@anthropic-ai/sdk` and `@google/genai` for the generation pipeline. Linting via oxlint, formatting via Prettier. Built to run on Vercel.
+React 19, Vite, TypeScript, Tailwind, and TanStack Query on the front end; `@anthropic-ai/sdk` and `@google/genai` for the generation pipeline. Linting via oxlint, formatting via Prettier. Deployed on Vercel.
