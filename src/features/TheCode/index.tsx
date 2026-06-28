@@ -19,10 +19,10 @@ export function TheCode() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => void onCopy()}
-          className="inline-flex cursor-pointer items-center gap-3 rounded-lg border border-border bg-bg px-4 py-3 text-sm text-accent transition-colors hover:border-accent"
+          className="inline-flex max-w-full cursor-pointer items-center gap-3 rounded-lg border border-border bg-bg px-4 py-3 text-sm text-accent transition-colors hover:border-accent"
         >
-          <span>{REPO_URL}</span>
-          <span className="text-xs text-muted">
+          <span className="min-w-0 break-all">{REPO_URL}</span>
+          <span className="shrink-0 text-xs text-muted">
             {copied ? 'Copied!' : 'Copy'}
           </span>
         </a>

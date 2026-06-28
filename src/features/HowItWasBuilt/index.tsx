@@ -56,11 +56,13 @@ export function HowItWasBuilt() {
               other part I owned. The first scenes kept splitting the frame in
               half with a flat band of color, and what finally fixed it was
               flipping the approach around: describing the one scene I wanted,
-              rather than listing everything it shouldn't do. The other thing I
-              kept tweaking was how the product sat in the scene. At first it
-              floated on top, and what helped was giving the model more room to
-              ground it and adjust the surroundings so it actually belonged
-              there.
+              rather than listing everything it shouldn't do.
+            </p>
+            <p className="max-w-prose text-sm leading-relaxed">
+              Another thing I kept tweaking was how the product sat in the
+              scene. At first it floated on top, and what helped was giving the
+              model more room to ground it and adjust the surroundings so it
+              actually belonged there.
             </p>
             <p className="max-w-prose text-sm leading-relaxed">
               Reliability needed a bit of attention too. The three formats

@@ -23,8 +23,8 @@ async function generatePosts({
   });
 
   await Promise.all([
-    document.fonts.load('600 1em Inter'),
-    document.fonts.load('700 1em Inter'),
+    document.fonts.load('600 1em "Space Grotesk"'),
+    document.fonts.load('700 1em "Space Grotesk"'),
   ]);
 
   return Promise.all(

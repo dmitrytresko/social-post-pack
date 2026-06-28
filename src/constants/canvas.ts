@@ -1,10 +1,11 @@
 import type { PostFormat } from '../types/posts';
 
-export const FONT = 'Inter, system-ui, sans-serif';
+export const FONT = '"Space Grotesk", Inter, system-ui, sans-serif';
 
 export interface TypographyScale {
   headlineMin: number;
   headlineMax: number;
+  lineHeight: number;
   ctaMin: number;
   ctaMax: number;
   ctaRatio: number;
@@ -14,17 +15,19 @@ export interface TypographyScale {
 
 export const TYPOGRAPHY: Record<PostFormat, TypographyScale> = {
   square: {
-    headlineMin: 60,
-    headlineMax: 80,
+    headlineMin: 62,
+    headlineMax: 78,
+    lineHeight: 1.12,
     ctaMin: 35,
     ctaMax: 40,
     ctaRatio: 0.48,
-    maxHeadlineLines: 2,
+    maxHeadlineLines: 3,
     edgePad: 0.09,
   },
   story: {
     headlineMin: 48,
     headlineMax: 80,
+    lineHeight: 1.12,
     ctaMin: 30,
     ctaMax: 40,
     ctaRatio: 0.5,
@@ -34,6 +37,7 @@ export const TYPOGRAPHY: Record<PostFormat, TypographyScale> = {
   banner: {
     headlineMin: 60,
     headlineMax: 74,
+    lineHeight: 1.02,
     ctaMin: 25,
     ctaMax: 30,
     ctaRatio: 0.38,

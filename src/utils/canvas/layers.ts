@@ -142,7 +142,7 @@ export function drawCopy(
     type.ctaMin,
     type.ctaMax,
   );
-  const lineHeight = headline * 1.12;
+  const lineHeight = headline * type.lineHeight;
   const headlineCtaGap = headline * 0.38;
 
   ctx.font = `700 ${headline}px ${FONT}`;
