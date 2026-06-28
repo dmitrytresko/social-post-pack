@@ -12,11 +12,7 @@ export function TheCode() {
   };
 
   return (
-    <section
-      id="the-code"
-      aria-label="The code"
-      className="mt-14 border-t border-border pt-10"
-    >
+    <section id="the-code" aria-label="The code" className="mt-4">
       <Accordion label="the code" title="Browse the repo">
         <a
           href={REPO_URL}
