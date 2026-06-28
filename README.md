@@ -5,7 +5,7 @@ Turn one product image and one or two reference scenes into three ready-to-post 
 **Live:**
 
 ```
-https://social-post-pack.vercel.app/
+https://social-post-pack.vercel.app
 ```
 
 ## How it works
