@@ -32,8 +32,8 @@ export const TYPOGRAPHY: Record<PostFormat, TypographyScale> = {
     edgePad: 0.1,
   },
   banner: {
-    headlineMin: 72,
-    headlineMax: 85,
+    headlineMin: 60,
+    headlineMax: 74,
     ctaMin: 25,
     ctaMax: 30,
     ctaRatio: 0.38,
