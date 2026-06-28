@@ -1,4 +1,6 @@
 import { PostGenerator } from './features/PostGenerator';
+import { HowItWasBuilt } from './features/HowItWasBuilt';
+import { TheCode } from './features/TheCode';
 import { SectionHeading } from './components/SectionHeading';
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
       </p>
 
       <PostGenerator />
+      <HowItWasBuilt />
+      <TheCode />
     </main>
   );
 }
