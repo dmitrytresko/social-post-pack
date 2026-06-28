@@ -1,8 +1,8 @@
 # Social Post Pack
 
-Turn one product image and one or two reference scenes into three ready-to-post social creatives — square (1080×1080), story (1080×1920), and wide banner. Claude plans the layout and writes the on-image copy, Gemini 2.5 Flash Image places the product into the scene, and a Canvas pass overlays the copy and exports each creative as a PNG.
+Turn one product image and one or two reference scenes into three ready-to-post social creatives — square (1080×1080), story (1080×1920), and wide banner. Claude plans the layout and writes the on-image copy, Gemini 2.5 Flash Image places the product into the scene.
 
-**Live:**
+**Live URL :**
 
 ```
 https://social-post-pack.vercel.app
