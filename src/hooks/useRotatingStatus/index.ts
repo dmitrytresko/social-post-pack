@@ -3,7 +3,7 @@ import type { UseRotatingStatusInput } from './types';
 
 export function useRotatingStatus({
   messages,
-  intervalMs = 15_000,
+  intervalMs = 15000,
 }: UseRotatingStatusInput) {
   const [index, setIndex] = useState(0);
 
