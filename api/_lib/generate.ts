@@ -1,8 +1,8 @@
 import { GoogleGenAI } from '@google/genai';
-import { normalizeLayout } from './layout.ts';
-import { buildScenePrompt } from './prompt.ts';
-import { parseDataUrl } from './images.ts';
-import type { FormatLayout, PostFormat } from './types.ts';
+import { normalizeLayout } from './layout.js';
+import { buildScenePrompt } from './prompt.js';
+import { parseDataUrl } from './images.js';
+import type { FormatLayout, PostFormat } from './types.js';
 
 const ASPECT_RATIOS: Record<PostFormat, string> = {
   square: '1:1',

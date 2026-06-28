@@ -1,4 +1,4 @@
-import type { MediaType, ParsedImage } from './types.ts';
+import type { MediaType, ParsedImage } from './types.js';
 
 export function parseDataUrl(dataUrl: string): ParsedImage {
   const match = dataUrl.match(

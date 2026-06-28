@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { generateScenes } from './_lib/generate.ts';
-import type { GenerateBody } from './_lib/types.ts';
+import { generateScenes } from './_lib/generate.js';
+import type { GenerateBody } from './_lib/types.js';
 
 export const config = { maxDuration: 60 };
 

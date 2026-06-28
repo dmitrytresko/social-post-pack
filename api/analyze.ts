@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { analyze } from './_lib/analyze.ts';
-import type { AnalyzeBody } from './_lib/types.ts';
+import { analyze } from './_lib/analyze.js';
+import type { AnalyzeBody } from './_lib/types.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {

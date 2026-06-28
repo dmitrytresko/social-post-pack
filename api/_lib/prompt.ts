@@ -1,5 +1,5 @@
-import { buildSeparationHint } from './layout.ts';
-import type { FormatLayout, PostFormat } from './types.ts';
+import { buildSeparationHint } from './layout.js';
+import type { FormatLayout, PostFormat } from './types.js';
 
 // shared by the claude analysis prompt and every gemini format prompt
 const GLOBAL_PROMPT_RULES = `Compose one continuous, full-bleed photographic scene that fills the entire frame edge to edge — a single cohesive environment with consistent lighting and depth. Keep the product within one area of the frame and leave the opposite region as open, uncluttered background so overlay copy can be placed there afterwards; keep the product, along with its shadow, reflection, and glow, clearly clear of that open area. Render the scene only — do not draw any text, captions, or logos, since overlay copy is added after generation.`;

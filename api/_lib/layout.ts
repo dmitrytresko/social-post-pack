@@ -1,4 +1,4 @@
-import type { FormatLayout, ProductQuadrant, TextEdge } from './types.ts';
+import type { FormatLayout, ProductQuadrant, TextEdge } from './types.js';
 
 const OPPOSED_EDGES: Record<ProductQuadrant, TextEdge[]> = {
   'top-left': ['bottom', 'right'],

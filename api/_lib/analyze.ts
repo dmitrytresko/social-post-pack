@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { ANALYSIS_PROMPT } from './prompt.ts';
-import { analysisSchema } from './schema.ts';
-import { parseDataUrl } from './images.ts';
+import { ANALYSIS_PROMPT } from './prompt.js';
+import { analysisSchema } from './schema.js';
+import { parseDataUrl } from './images.js';
 
 export async function analyze(
   productImage: string,

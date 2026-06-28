@@ -2,9 +2,9 @@ import { defineConfig, loadEnv, type Plugin } from 'vite';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-import { analyze } from './api/_lib/analyze.ts';
-import { generateScenes } from './api/_lib/generate.ts';
-import type { AnalyzeBody, GenerateBody } from './api/_lib/types.ts';
+import { analyze } from './api/_lib/analyze.js';
+import { generateScenes } from './api/_lib/generate.js';
+import type { AnalyzeBody, GenerateBody } from './api/_lib/types.js';
 
 function readJson(req: IncomingMessage): Promise<unknown> {
   return new Promise((resolve, reject) => {
